@@ -81,7 +81,9 @@ if (require("shinyjs", quietly = FALSE)){
 }
 
 # never executes, just lets the environment know V8 is a dependency
-if (FALSE) require("V8")
+# if (FALSE) require("V8")
+
+require("V8")
 
 # now that Shiny and ShinyJS are both confirmed / installed... maybe do some checking on getwd (later)
 # see if the Shiny app files are here:
