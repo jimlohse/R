@@ -83,7 +83,36 @@ if (require("shinyjs", quietly = FALSE)){
 # never executes, just lets the environment know V8 is a dependency
 # if (FALSE) require("V8")
 
-require("V8")
+# require("V8")
+
+# now do the same for ShinyJS for color pickers...
+if (require("V8", quietly = FALSE)){
+  
+  print("V8 is installed correctly")
+  
+} else {
+  
+  print("Trying to install V8, it appears to be missing...")
+  theAnswer <- readline("Install ShinyJS? (Y/y or N/n)")
+  
+  if (tolower(substr(theAnswer,0,1)) == 'y'){
+    
+    print("Please wait while V8 is installed, if it fails install manually with:", quote = FALSE)
+    print('install.packages("V8") at the command line in RStudio', quote = FALSE)
+    
+    # install shiny
+    install.packages("V8")
+    
+    if(require(shiny)){
+      print("Now V8 is installed correctly")
+    } else {
+      print("Sorry, could not install V8, let me know if it doesn't work from here!")
+    }
+  } else {
+    print("You should still be able to run without a V8, let me know!")
+  }
+}
+
 
 # now that Shiny and ShinyJS are both confirmed / installed... maybe do some checking on getwd (later)
 # see if the Shiny app files are here:
