@@ -7,32 +7,35 @@
 
 # adapted from http://shiny.rstudio.com/gallery/kmeans-example.html
 
-# require("V8")
-#test this out, get a little fancier if this works with some error handling
-library("shinyjs")
-
 palette(c("#E41A1C", "#377EB8", "#4DAF4A", "#984EA3",
           "#FF7F00", "#FFFF33", "#A65628", "#F781BF", "#999999"))
+
+climateUtah <- read.csv('climateDataUtah2013.csv')
+
 
 shinyServer(function(input, output, session) {
   
   # Combine the selected variables into a new data frame
   selectedData <- reactive({
-    iris[, c(input$xcol, input$ycol)]
+  # get data 
+  
+  par(mfrow=c(1, 1))
+  
+  cor.test(as.numeric(climateUtah$ELEVATION), climateUtah$DPNT)
+  by(climateUtah, climateUtah$DATE, function(climateUtah) 
+    cor.test(as.numeric(climateUtah$ELEVATION),climateUtah$DPNT))
   })
   
-  clusters <- reactive({
-    kmeans(selectedData(), input$clusters)
-  })
+  
   
   output$plot1 <- renderPlot({
-    par(mar = c(5.1, 4.1, 0, 1))
     
-    plot(selectedData(),
-         col = clusters()$cluster,
-         pch = 20, cex = 3)
+    #by(climateUtah, climateUtah$DATE, function(climateUtah) plot.default(as.numeric(climateUtah$ELEVATION),climateUtah$DPNT, xlab = "Elevation", ylab = "Departure from Normal Temp (.1*F)", main = "Temperature Changes vs. Elevation by Month"))
     
-    points(clusters()$centers, pch = 4, cex = 4, lwd = 4)
+    #modify the line above to grab the date from the dropdown in the UI
+   
+    by(climateUtah, climateUtah$DATE == input$monthOfYear, function(climateUtah) plot.default(as.numeric(climateUtah$ELEVATION),climateUtah$DPNT, xlab = "Elevation", ylab = "Departure from Normal Temp (.1*F)", main = "Temperature Changes vs. Elevation by Month"))
+
   })
   
 })

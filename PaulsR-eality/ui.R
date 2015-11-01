@@ -7,23 +7,17 @@
 
 # adapted from http://shiny.rstudio.com/gallery/kmeans-example.html
 
-#monthsOfYear = c('January','February','March','April','May',
-#                'June','July','August','September','October',
-#                'November','December')
+monthOfYearList = c('January'='201301','February'='201302','March'='201303','April'='201304','May'='201305',
+                    'June'='201306','July'='201307','August'='201308','September'='201309','October'='201310',
+                    'November'='201311','December'='201312')
 
-monthOfYearList = c('January'='1','February'='2','March'='3','April'='4','May'='5',
-                'June'='6','July'='7','August'='8','September'='9','October'='10',
-                  'November'='11','December'='12')
-
-regressionLineChoiceList = c('None selected' = 'none', 'Linear Regression' = 'linearRegression', 
+regressionLineChoiceList = c('None selected' = 'none', 'Linear Regression' = 'linearRegression',
                              'Quadratic Regression' = 'quadraticRegression', 'Cubic Regression' = 'cubicRegression')
 
-# regressionLineColorList = c(colors())
+paulsHTMLSummaryLoc = 'https://jimlohse.shinyapps.io/PaulsR-eality/paulsSummary.html'
 
-# removed from link to pauls summary: target="_blank",
+paulsDOCXSummaryLoc = 'https://jimlohse.shinyapps.io/PaulsR-eality/paulsSummary.docx'
 
-paulsHTMLSummaryLoc = paste('file:/',getwd(),"/paulsSummary.html", sep = '')
-paulsDOCXSummaryLoc = paste('file:/',getwd(),"/paulsSummary.docx", sep = '')
 
 shinyUI(pageWithSidebar(
   headerPanel('Analysis of Utah Weather Data by Month'),
@@ -36,12 +30,6 @@ shinyUI(pageWithSidebar(
     #   div(class = "title", "Graph Data Color"),
     #   colourInput("xCol", NULL, "yellow", palette = "limited", showColour = 'background')),
     
-    # some original code kept for examples
-    selectInput('ycol', 'Y Variable', names(iris),
-                selected=names(iris)[[2]]),
-
-    numericInput('clusters', 'Cluster count', 3,
-                 min = 1, max = 9),
     
     radioButtons('regressionLineChoice', 'Choose:', regressionLineChoiceList),
     
@@ -50,12 +38,10 @@ shinyUI(pageWithSidebar(
     #         div(class = "title", "Choose regression line color"),
     #         colourInput("regLineColor", NULL, "yellow", palette = "limited", showColour = 'background')),
     
-    # put a link to the docx file for those who want to download it
-    #wellPanel(
-    #  helpText(a("Paul's Original Summary/HTML", href=paulsHTMLSummaryLoc))
-    #) #,
     wellPanel(
-       helpText(a("See/download project on Github", href='https://github.com/jimlohse/R/tree/master/PaulsR-eality'))
+      helpText(a("See full analysis (HTML)", target="_blank", href=paulsHTMLSummaryLoc)),
+      helpText(a("See full analysis (docx)", target="_blank", href=paulsDOCXSummaryLoc)),
+      helpText(a("See/download project on Github", target="_blank", href='https://github.com/jimlohse/R/tree/master/PaulsR-eality'))
        )
     
     ),

@@ -1,0 +1,19 @@
+{
+    "collab_server" : "",
+    "contents" : "# server.R for Global Data Competition\n\n# Global Data Competition submission, this script and Shiny app Copyright 2015 by Jim Lohse\n# The core statistical analysis is Copyright 2015 the Data God aka Paul Ricci, Master Statistician\n\n# please see notes / project requirements in runThisScript.R\n\n# adapted from http://shiny.rstudio.com/gallery/kmeans-example.html\n\npalette(c(\"#E41A1C\", \"#377EB8\", \"#4DAF4A\", \"#984EA3\",\n          \"#FF7F00\", \"#FFFF33\", \"#A65628\", \"#F781BF\", \"#999999\"))\n\nclimateUtah <- read.csv('climateDataUtah2013.csv')\n\n\nshinyServer(function(input, output, session) {\n  \n  # Combine the selected variables into a new data frame\n  selectedData <- reactive({\n  # get data \n  \n  par(mfrow=c(1, 1))\n  \n  cor.test(as.numeric(climateUtah$ELEVATION), climateUtah$DPNT)\n  by(climateUtah, climateUtah$DATE, function(climateUtah) \n    cor.test(as.numeric(climateUtah$ELEVATION),climateUtah$DPNT))\n  })\n  \n  \n  \n  output$plot1 <- renderPlot({\n    \n    #by(climateUtah, climateUtah$DATE, function(climateUtah) plot.default(as.numeric(climateUtah$ELEVATION),climateUtah$DPNT, xlab = \"Elevation\", ylab = \"Departure from Normal Temp (.1*F)\", main = \"Temperature Changes vs. Elevation by Month\"))\n    \n    #modify the line above to grab the date from the dropdown in the UI\n   \n    by(climateUtah, climateUtah$DATE == input$monthOfYear, function(climateUtah) plot.default(as.numeric(climateUtah$ELEVATION),climateUtah$DPNT, xlab = \"Elevation\", ylab = \"Departure from Normal Temp (.1*F)\", main = \"Temperature Changes vs. Elevation by Month\"))\n\n  })\n  \n})\n\n",
+    "created" : 1446344180497.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3586810107",
+    "id" : "B5D81D76",
+    "lastKnownWriteTime" : 1446350934,
+    "path" : "C:/Users/home/Dropbox/workspace/R/PaulsR-eality/server.R",
+    "project_path" : "server.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
