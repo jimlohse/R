@@ -31,10 +31,10 @@ shinyUI(pageWithSidebar(
   sidebarPanel(
     selectInput('monthOfYear', 'Choose a Month:', monthOfYearList),
     
-    div(
-      class = "section",
-      div(class = "title", "Graph Data Color"),
-      colourInput("xCol", NULL, "yellow", palette = "limited", showColour = 'background')),
+    # div(
+    #   class = "section",
+    #   div(class = "title", "Graph Data Color"),
+    #   colourInput("xCol", NULL, "yellow", palette = "limited", showColour = 'background')),
     
     # some original code kept for examples
     selectInput('ycol', 'Y Variable', names(iris),
@@ -45,10 +45,10 @@ shinyUI(pageWithSidebar(
     
     radioButtons('regressionLineChoice', 'Choose:', regressionLineChoiceList),
     
-    div(
-      class = "section",
-            div(class = "title", "Choose regression line color"),
-            colourInput("regLineColor", NULL, "yellow", palette = "limited", showColour = 'background')),
+    # div(
+    #   class = "section",
+    #         div(class = "title", "Choose regression line color"),
+    #         colourInput("regLineColor", NULL, "yellow", palette = "limited", showColour = 'background')),
     
     # put a link to the docx file for those who want to download it
     #wellPanel(

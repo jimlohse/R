@@ -2,9 +2,9 @@ name: PaulsR-eality
 account: jimlohse
 server: shinyapps.io
 appId: 66808
-bundleId: 301849
+bundleId: 301850
 url: https://jimlohse.shinyapps.io/PaulsR-eality
-when: 1446336829.82422
+when: 1446336966.51604
 asMultiple: FALSE
 asStatic: FALSE
 ignoredFiles:
