@@ -2,10 +2,10 @@ name: PaulsR-eality
 account: jimlohse
 server: shinyapps.io
 appId: 66808
-bundleId: 301846
+bundleId: 301849
 url: https://jimlohse.shinyapps.io/PaulsR-eality
-when: 1446336457.41492
+when: 1446336829.82422
 asMultiple: FALSE
 asStatic: FALSE
 ignoredFiles:
-        paulsSummary.html|paulsWordDocSummary.docx|runThisScript.R|paulsSummary_files/colorschememapping.xml|paulsSummary_files/filelist.xml|paulsSummary_files/header.html|paulsSummary_files/image001.png|paulsSummary_files/image002.png|paulsSummary_files/image003.png|paulsSummary_files/image004.png|paulsSummary_files/image005.png|paulsSummary_files/image006.png|paulsSummary_files/image007.png|paulsSummary_files/image008.png|paulsSummary_files/image009.png|paulsSummary_files/image010.png|paulsSummary_files/image011.png|paulsSummary_files/image012.png|paulsSummary_files/image013.png|paulsSummary_files/themedata.thmx
+        airQualityDataUtah2013.csv|climateDataUtah2013.csv|paulsSummary.html|paulsWordDocSummary.docx|runThisScript.R|paulsSummary_files/colorschememapping.xml|paulsSummary_files/filelist.xml|paulsSummary_files/header.html|paulsSummary_files/image001.png|paulsSummary_files/image002.png|paulsSummary_files/image003.png|paulsSummary_files/image004.png|paulsSummary_files/image005.png|paulsSummary_files/image006.png|paulsSummary_files/image007.png|paulsSummary_files/image008.png|paulsSummary_files/image009.png|paulsSummary_files/image010.png|paulsSummary_files/image011.png|paulsSummary_files/image012.png|paulsSummary_files/image013.png|paulsSummary_files/themedata.thmx
