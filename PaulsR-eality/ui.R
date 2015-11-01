@@ -16,7 +16,7 @@ regressionLineChoiceList = c('None selected' = 'none', 'Linear Regression' = 'li
 
 paulsHTMLSummaryLoc = 'https://jimlohse.shinyapps.io/PaulsR-eality/paulsSummary.html'
 
-paulsDOCXSummaryLoc = 'https://jimlohse.shinyapps.io/PaulsR-eality/paulsSummary.docx'
+paulsDOCXSummaryLoc = 'https://drive.google.com/file/d/0B9gPBHNny48iblZFRk9aZ2plbzQ/view?usp=sharing'
 
 
 shinyUI(pageWithSidebar(
@@ -39,8 +39,8 @@ shinyUI(pageWithSidebar(
     #         colourInput("regLineColor", NULL, "yellow", palette = "limited", showColour = 'background')),
     
     wellPanel(
-      helpText(a("See full analysis (HTML)", target="_blank", href=paulsHTMLSummaryLoc)),
-      helpText(a("See full analysis (docx)", target="_blank", href=paulsDOCXSummaryLoc)),
+      #helpText(a("See full analysis (HTML)", target="_blank", href=paulsHTMLSummaryLoc)),
+      helpText(a("See full analysis Google Doc", target="_blank", href=paulsDOCXSummaryLoc)),
       helpText(a("See/download project on Github", target="_blank", href='https://github.com/jimlohse/R/tree/master/PaulsR-eality'))
        )
     

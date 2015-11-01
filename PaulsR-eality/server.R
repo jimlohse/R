@@ -33,9 +33,32 @@ shinyServer(function(input, output, session) {
     #by(climateUtah, climateUtah$DATE, function(climateUtah) plot.default(as.numeric(climateUtah$ELEVATION),climateUtah$DPNT, xlab = "Elevation", ylab = "Departure from Normal Temp (.1*F)", main = "Temperature Changes vs. Elevation by Month"))
     
     #modify the line above to grab the date from the dropdown in the UI
+    
+    
    
     by(climateUtah, climateUtah$DATE == input$monthOfYear, function(climateUtah) plot.default(as.numeric(climateUtah$ELEVATION),climateUtah$DPNT, xlab = "Elevation", ylab = "Departure from Normal Temp (.1*F)", main = "Temperature Changes vs. Elevation by Month"))
-
+    
+    yVar <- climateUtah$DPNT
+    xVar <- climateUtah$ELEVATION
+    
+    if (input$regressionLineChoice == 'linearRegression') {
+      
+      abline(lm(yVar ~ climateUtah$ELEVATION), col="red") # regression line (y~x)
+      
+    } else if (input$regressionLineChoice == 'quadraticRegression'){
+      
+      
+      
+    } else if (input$regressionLineChoice == 'cubicRegression') {
+      
+      
+      
+    } else if (input$regressionLineChoice == 'none'){
+      
+      # don't draw a regression line
+      
+    }
+    
   })
   
 })
